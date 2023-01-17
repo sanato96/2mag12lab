@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <h1>Описание</h1>
+    <img id="object_image" src="" alt="За зачет тут можете и вы оказаться.">
+    <div id="object_description"></div>
+  </body>
+  <style>
+      div {
+        font-size: 18px;
+        font-size: calc(18px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
+      }
+      img {
+      width: calc(128px + 512 * ((100vw - 320px) / 1920));
+      height: calc(128px + 512 * ((100vw - 320px) / 1920));
+      margin-right: 10px;
+      }
+    </style>
+  <script>
+    function getUrlParameter(param) {
+      var url = new URL(window.location.href);
+      return url.searchParams.get(param);
+    }
+    // Get the object ID and category ID from the URL
+    var object = getUrlParameter('object');
+    var category = getUrlParameter('category');
+    console.log(object)
+    if (object != null && category != null){
+    	// Display the object description
+    	// Display the object image
+     	if(category == 1 && object== 1) {
+      	document.getElementById("object_description").innerHTML = "РОССИЯ ВПЕРЕД!";
+      	document.getElementById("object_image").src = "images/" + "sberplay.png";
+      }
+      if(category == 1 && object== 2) {
+      	document.getElementById("object_description").innerHTML = "РОССИЯ ВПЕРЕД!";
+      	document.getElementById("object_image").src = "images/" + "playkey.png";
+      }
+      if(category == 1 && object== 3) {
+      	document.getElementById("object_description").innerHTML = "РОССИЯ ВПЕРЕД!";
+      	document.getElementById("object_image").src = "images/" + "vkplay.png";
+      }
+
+      if(category == 2 && object== 1) {
+      	document.getElementById("object_description").innerHTML = "АМЕРИКАНЦАМ НАЗАД!";
+      	document.getElementById("object_image").src = "images/" + "gfn.png";
+      }
+      if(category == 2 && object== 2) {
+      	document.getElementById("object_description").innerHTML = "АМЕРИКАНЦАМ НАЗАД!";
+      	document.getElementById("object_image").src = "images/" + "amazon luna.png";
+      }
+      if(category == 2 && object== 3) {
+      	document.getElementById("object_description").innerHTML = "АМЕРИКАНЦАМ НАЗАД!";
+      	document.getElementById("object_image").src = "images/" + "google stadia.png";
+      }
+    } else {
+      document.getElementById("object_image").remove();
+    }
+  </script>
+</html>

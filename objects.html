@@ -1,0 +1,76 @@
+<html>
+  <body>
+    <h1>Объекты</h1>
+    <div id="category_description"></div>
+    <ul id="object_list">
+    </ul>
+  </body>
+  <style>
+	h1 {
+		font-size: 18px;
+		font-size: calc(18px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
+	}
+	div {
+		font-size: 18px;
+		font-size: calc(18px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
+	}
+	li {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		align-items: center;
+
+		font-size: 18px;
+		font-size: calc(18px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
+		text-decoration-skip-ink: none;
+	  }
+	  img {
+		width: calc(32px + 64 * ((100vw - 320px) / 1920));
+		height: calc(32px + 64 * ((100vw - 320px) / 1920));
+		margin-right: 10px;
+	  }
+  </style>
+  <script>
+	function getUrlParameter(param) {
+		var url = new URL(window.location.href);
+		return url.searchParams.get(param);
+	}
+	function addObject(category, number, name) {
+		var objectLink = document.createElement("a");
+
+		objectLink.href = `descriptions.html?object=${number}&category=${category}`;
+		objectLink.target = "descriptions";
+		objectLink.innerHTML = name;
+
+		var objectImage = document.createElement("img");
+		objectImage.src = "images/" + name + "_thumbnail.png";
+
+		var objectItem = document.createElement("li");
+
+		objectItem.appendChild(objectLink);
+		objectItem.appendChild(objectImage);
+		document.getElementById("object_list").appendChild(objectItem);
+	}
+    // Get the category ID from the URL
+    var category = getUrlParameter('category');
+	console.log('obj' + category);
+    if (category != null) {
+
+    	// Display the category description
+    	// document.getElementById("category_description").innerHTML = "Описание для категории " + category;
+    	// Populate the object list with links to objects in the selected category
+    	if(category == 1){
+			document.getElementById("category_description").innerHTML = "Описание для категории 'Русские облачные сервисы гейминга'"
+			addObject(category, 1, "sberplay");
+			addObject(category, 2, "playkey");
+			addObject(category, 3, "vkplay");
+    	}
+		if(category == 2){
+			document.getElementById("category_description").innerHTML = "Описание для категории 'Зарубежные облачные сервисы гейминга'"
+			addObject(category, 1, "gfn");
+			addObject(category, 2, "amazon luna");
+			addObject(category, 3, "google stadia");
+		}
+    }
+  </script>
+</html>

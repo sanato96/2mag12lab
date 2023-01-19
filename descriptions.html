@@ -1,10 +1,19 @@
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <link rel="stylesheet" type="text/css" media="handheld" href="handheld.css">
+  </head>
   <body>
     <h1>Описание</h1>
-    <img id="object_image" src="" alt="Грузица!">
+    <img id="object_image" src="" alt="Аде картинка?.">
     <div id="object_description"></div>
   </body>
   <style>
+      h1 {
+        font-size: 22px;
+        font-size: calc(22px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
+      }
       div {
         font-size: 18px;
         font-size: calc(18px + (31 + 31 * 0.7) * ((100vw - 320px) / 1920));
